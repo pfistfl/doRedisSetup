@@ -5,3 +5,17 @@ Setup / Slave Scripts for doRedis
 ```r
 source("https://raw.githubusercontent.com/pfistfl/doRedisSetup/master/R/redisSlave.R")
 ```
+
+## Commands:
+```r
+# Start workers (n can be set)
+ps = startLocalWorkers (n = (parallel::detectCores() - 2), queue = "jobs", host = "10.153.53.62") # , password = agent::agent_get("redispass"))
+
+# List workers
+listWorkers(ps)
+
+# Kill all workers
+killAllWorkers(ps)
+```
+
+
