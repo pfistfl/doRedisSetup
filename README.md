@@ -9,6 +9,7 @@ source("https://raw.githubusercontent.com/pfistfl/doRedisSetup/master/R/redisSla
 ## Commands:
 ```r
 # Start workers (n can be set)
+# Sourcing the Script automatically starts NCPUs - 2 Workers
 ps = startLocalWorkers (n = (parallel::detectCores() - 2), queue = "jobs", host = "10.153.53.62") # , password = agent::agent_get("redispass"))
 
 # List workers
