@@ -28,6 +28,6 @@ ff = foreach(icount(100)) %:%
     }
 
 # Stop the Jobs: -----------------------------------------------------------------------------------
-killAllWorkers(ps)
+ps = killAllWorkers(ps)
 removeQueue("jobs")
 

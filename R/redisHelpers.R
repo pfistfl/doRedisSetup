@@ -81,7 +81,7 @@ startLocalWorkers <- function(n, queue = "jobs", host="10.153.53.62", port=6379,
   p = vector("list", n)
   while(j < n)
   {
-    p[[j + 1]] = process$new(command = Rbin, args = args, supervise = TRUE, stdout = "|",  stderr = "|")
+    p[[j + 1]] = process$new(command = Rbin, args = args, supervise = TRUE, stdout = "|",  stderr = "|", echo_cmd = TRUE)
     j <- j + 1
   }
   return(p)
@@ -100,9 +100,11 @@ killNWorkers = function(ps, n = 2) {
   sapply(ps[seq_len(n)], function(x){Sys.sleep(0.1); x$kill()})
 
   # Check if all workers are terminated
-  if (all(!sapply(ps[seq_len(n)], function(x){x$is_alive()})))
-    cat(sprintf("Killed %i workers \n", n))
-
+  if (all(!sapply(ps[seq_len(n)], function(x){x$is_alive()}))) {
+    cat(sprintf("Killed %i workers\n", n))
+  } else {
+    cat("No workers to kill!\n")
+  }
   ps = ps[-seq_len(n)]
   return(ps)
 }
