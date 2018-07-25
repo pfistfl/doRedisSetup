@@ -19,7 +19,7 @@ ps = startLocalWorkers (n = 2, queue = "jobs", host = "10.153.53.62") # , passwo
 
 # Define the Jobs: ---------------------------------------------------------------------------------
 tsks = list(iris.task, pid.task)
-lrns = list(makeLearner("classif.rpart"), makeLearner("classif.xgboost"))
+lrns = list(makeLearner("classif.rpart"), makeLearner("classif.xgboost", nthread = 1L))
 
 ff = foreach(icount(100)) %:%
   foreach(tsk = tsks, .combine = "c") %:%

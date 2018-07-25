@@ -90,7 +90,9 @@ startLocalWorkers <- function(n, queue, host="localhost", port=6379,
 #' Kills all worker processes
 killAllWorkers = function(ps) {
   n = length(ps)
-  killNWorkers(ps, n)
+  if (n >= 1L)
+    killNWorkers(ps, n)
+  return(NULL)
 }
 
 #' Kills 'n' first worker processes
