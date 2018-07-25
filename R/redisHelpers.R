@@ -97,7 +97,7 @@ killAllWorkers = function(ps) {
 
 #' Kills 'n' first worker processes
 killNWorkers = function(ps, n = 2) {
-  sapply(ps[seq_len(n)], function(x){x$kill()})
+  sapply(ps[seq_len(n)], function(x){Sys.sleep(0.1); x$kill()})
 
   # Check if all workers are terminated
   if (all(!sapply(ps[seq_len(n)], function(x){x$is_alive()})))

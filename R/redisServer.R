@@ -7,6 +7,8 @@ library(processx)
 # Set up redis server password: --------------------------------------------------------------------
 # agent::agent_set("redispass", "some_password")
 
+# Source helper functions
+source("https://raw.githubusercontent.com/pfistfl/doRedisSetup/master/R/redisHelpers.R")
 
 # Set Up Redis:
 registerDoRedis("jobs", host = "10.153.53.62") # , password = agent::agent_get("redispass"))
