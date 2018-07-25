@@ -1,6 +1,6 @@
 # Set Up Redis:
-options('redis:num'=TRUE) # Some weird bug with numeric
-setProgress(TRUE)         # Progress bar
+options('redis:num'=TRUE)    # Some weird bug with numeric
+doRedis::setProgress(TRUE)   # Progress bar
 
 # Set up redis server password: --------------------------------------------------------------------
 # agent::agent_set("redispass", "some_password")
@@ -81,7 +81,7 @@ startLocalWorkers <- function(n, queue, host="localhost", port=6379,
   p = vector("list", n)
   while(j < n)
   {
-    p[[j + 1]] = process$new(command = Rbin, args = args)
+    p[[j + 1]] = process$new(command = Rbin, args = args, supervise = TRUE, cleanup = TRUE,  stdout = "|",  stderr = "|")
     j <- j + 1
   }
   return(p)
