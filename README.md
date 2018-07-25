@@ -2,5 +2,5 @@
 Setup / Slave Scripts for doRedis
 
 ```r
-source("https://raw.githubusercontent.com/pfistfl/doRedisSetup/master/redisSlave.R")
+source("https://raw.githubusercontent.com/pfistfl/doRedisSetup/master/R/redisSlave.R")
 ```
