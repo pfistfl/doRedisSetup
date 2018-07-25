@@ -1,10 +1,8 @@
 # Install / Load Packages
 if (!require("foreach"))
   install.packages("foreach")
-
 if (!require("doRedis"))
   install.packages("doRedis")
-
 if (!require("agent"))
   install.packages("agent")
 
