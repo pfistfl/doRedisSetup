@@ -5,14 +5,14 @@ if (!require("devtools"))
 if (!require("foreach"))
   install.packages("foreach")
 
-if (!require("bdoRedis"))
+if (!require("doRedis"))
   devtools::install_github("bwlewis/doRedis")
 
 if (!require("processx"))
   devtools::install_github("r-lib/processx")
 
-if (!require("agent"))
-  devtools::install_github("ropensci/agent")
+# if (!require("agent"))
+#   devtools::install_github("ropensci/agent")
 
 # Source helper functions
 source("https://raw.githubusercontent.com/pfistfl/doRedisSetup/master/R/redisHelpers.R")
