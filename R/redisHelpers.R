@@ -48,7 +48,7 @@ doRedis::setProgress(TRUE)   # Progress bar
 #' }
 #'
 #' @export
-startLocalWorkers <- function(n, queue, host="localhost", port=6379,
+startLocalWorkers <- function(n, queue = "jobs", host="10.153.53.62", port=6379,
   iter=Inf, linger=30, log=stdout(),
   Rbin=paste(R.home(component="bin"),"R",sep="/"), password, ...) {
   m <- match.call()
