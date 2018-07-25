@@ -81,7 +81,7 @@ startLocalWorkers <- function(n, queue, host="localhost", port=6379,
   p = vector("list", n)
   while(j < n)
   {
-    p[[j + 1]] = process$new(command = Rbin, args = args, supervise = TRUE, cleanup = TRUE,  stdout = "|",  stderr = "|")
+    p[[j + 1]] = process$new(command = Rbin, args = args, supervise = TRUE, stdout = "|",  stderr = "|", poll_connection = TRUE)
     j <- j + 1
   }
   return(p)

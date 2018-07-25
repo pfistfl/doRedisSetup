@@ -9,8 +9,6 @@ library(processx)
 
 
 # Set Up Redis:
-options('redis:num'=TRUE) # Some weird bug with numeric
-setProgress(TRUE)         # Progress bar
 registerDoRedis("jobs", host = "10.153.53.62") # , password = agent::agent_get("redispass"))
 
 # Start some local workers
@@ -19,7 +17,7 @@ ps = startLocalWorkers (n = 2, queue = "jobs", host = "10.153.53.62") # , passwo
 
 # Define the Jobs: ---------------------------------------------------------------------------------
 tsks = list(iris.task, pid.task)
-lrns = list(makeLearner("classif.rpart"), makeLearner("classif.xgboost", nthread = 1L))
+lrns = list(makeLearner("classif.rpart"), makeLearner("classif.lda"))
 
 ff = foreach(icount(100)) %:%
   foreach(tsk = tsks, .combine = "c") %:%
